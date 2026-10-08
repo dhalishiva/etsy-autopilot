@@ -1,0 +1,15 @@
+project_id = "etsy-autopilot"
+
+[functions.etsy-oauth]
+# Etsy's redirect back carries no Supabase JWT; the function authenticates the
+# POST itself and trusts only the one-time `state` on the GET callback.
+verify_jwt = false
+
+[functions.etsy-api]
+verify_jwt = true
+
+[functions.ai-copy]
+verify_jwt = true
+
+[functions.product-generate]
+verify_jwt = true

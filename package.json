@@ -1,0 +1,21 @@
+{
+  "name": "etsy-autopilot",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Generate, package and publish digital products to Etsy from one dashboard.",
+  "workspaces": [
+    "packages/*",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run sync:shared && npm run build -w apps/web",
+    "test": "npm run test -w packages/core",
+    "typecheck": "npm run typecheck -w packages/core && npm run typecheck -w apps/web",
+    "sync:shared": "node scripts/sync-shared.mjs",
+    "samples": "npm run samples -w packages/core"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
